@@ -17,26 +17,26 @@
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1><i class="fa fa-camera-retro"></i> Join a Meet</h1>
+                <h1><i class="fa fa-camera-retro"></i><%=title%></h1>
 
                 <p class="lead">Please select one of the meets following 
                 </p>
             </div>
         </div>
         <div class="row">
-            
-            <div class="col-lg-4 col-sm-6">
-                <div class="thumbnail">
-                    <img
-                        src="https://images.unsplash.com/photo-1576073459656-9b03ee75cc92?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjh8fG1lZXRpbmclMjByb29tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
-                    <strong>Session ID:</p>
-                    <p>Session Name:</p>
-                    <p>Max Users per Session:</p>
-                    <p>Session Desc:</p>
-                    <button class="btn btn-primary">Join Meet</button>
-
+        <% user.forEach(function(user){ %>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="thumbnail">
+                        <img
+                            src="https://images.unsplash.com/photo-1576073459656-9b03ee75cc92?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjh8fG1lZXRpbmclMjByb29tfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+                        <strong>Session ID:<%=user.session_id%></p>
+                        <p>Session Name:<%=user.description%></p>
+                        <p>Room Name:<%=user.room_name%></p>
+                        <p>Max Users per Session:<%=user.max_users%></p>
+                        <button class="btn btn-primary">Join Meet</button>
+                    </div>
                 </div>
-            </div>
+        <%})%>
         </div>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

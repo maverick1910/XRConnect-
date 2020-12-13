@@ -53,7 +53,18 @@ app.post('/admin',function(req,res){
   res.render('admin')
 })
 app.get('/join',function(req,res){
-  res.render('join')
-})
+  conn.connect();
+  let sql="SELECT * FROM sessions";
+  let query=conn.query(sql,(err,rows)=>{
+    if(err)throw err;
+    res.render('join',{
+      title:' Join Meeting',
+      user:rows
+    });
+  });
+  conn.end();
+  
+});
+
 
 app.listen(PORT,console.log('server up'));
